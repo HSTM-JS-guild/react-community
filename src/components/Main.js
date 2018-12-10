@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { CardDeck, CardBody, Card, CardTitle, CardText, CardFooter} from 'reactstrap';
 
 class Main extends Component{
@@ -41,7 +41,7 @@ class DiscussionList extends Component{
                 id={post.id}
                 author={post.Author.DisplayName}
                 datePosted={post.DatePosted}
-                message={post.Body}
+                message={post.BodyWithoutMarkup}
                 title={post.Subject}
                 link={post.LinkToMessage}
             />
@@ -70,7 +70,9 @@ class CardTemplate extends Component{
                     <CardTitle>
                         <a href={`${this.props.link}`} > {this.props.title}</a>
                     </CardTitle>
-                    <CardText>{this.props.message}</CardText>
+                        <CardText>
+                            {`${this.props.message}`}
+                        </CardText>
                 </CardBody>
                 <CardFooter>Posted by: {this.props.author}</CardFooter>
             </Card>
