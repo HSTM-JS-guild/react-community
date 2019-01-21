@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component} from 'react';
 import { CardDeck, CardBody, Card, CardTitle, CardText, CardFooter} from 'reactstrap';
 
 class Main extends Component{

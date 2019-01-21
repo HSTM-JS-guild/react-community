@@ -12,16 +12,10 @@ class Navigation extends Component {
     return (
         <Nav>
           <NavItem>
-            <NavLink href="#">Link</NavLink>
+            <NavLink href="/home">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Link</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="#">Another Link</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink disabled href="#">Disabled Link</NavLink>
+            <NavLink href="/login">Login</NavLink>
           </NavItem>
         </Nav>
     );

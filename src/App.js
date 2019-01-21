@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
-// import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import Main from './components/Main';
+import contentPages from './components/ContentRoutes';
 
 class App extends Component {
 
   state = {
+    pages: contentPages,
     authed: true,
     user: [],
     fieldErrors: false,
@@ -41,14 +42,28 @@ class App extends Component {
       evt.preventDefault();
   };
 
-  render() {
-      return (
-          <div className="App">
-            <Navigation />
-            <Main />
-          </div>
-      );
-    }
+  render(){ 
+    
+    const pageContent = this.state.pages.map((page) => (
+    <Route 
+        key={page.id}
+        exact path={page.route} 
+        component={() => <page.component />}
+        description={page.description}
+        title={page.title}
+    />
+    ));
+
+    return (
+      <div>
+        <Navigation authed={this.state.authed}/>
+        <div id="main">
+        {pageContent}
+        </div>
+      </div>
+    )
   }
+}
+
+
   export default App;
-      
